@@ -35,16 +35,16 @@ export class CheckoutListPage implements OnInit {
   }
   var time = (formatAMPM(new Date));
   this.checkoutListArray = this.ChecklistModel.checkoutHeadphone({
-    headphoneNumber: this.checkoutForm.value.headphoneNumber,
+    headphoneNumber: this.checkoutListForm.value.headphoneNumber,
     timeCheckout: time,
-    studentName: this.checkoutForm.value.studenName,
+    studentName: this.checkoutListForm.value.studentName,
     returnedTime: null,
     });
     }
   
  
  deleteItem(todo){
-   this.checkoutListArray = this.ChecklistModel.deleteItem(todo);
+   this.checkoutListArray = this.ChecklistModel.returnHeadphone(todo);
  }
 
 
