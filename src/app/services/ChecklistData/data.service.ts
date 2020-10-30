@@ -1,30 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Todo } from 'src/app/types/todos/todo';
+import { ListItem } from 'src/app/types/checkoutList/list-item';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  todoArray = [];
+  checkoutListArray = [];
+  headphoneLogArray = [];
   constructor() { }
 
-  addTodo(todoObject:Todo) {
-    if (todoObject != null) {
-    
-      this.todoArray.push(todoObject);
 
-      return this.todoArray;
-    } else {
-      return null;
+  checkoutHeadphone(checkoutObject: ListItem){
+    if (checkoutObject != null){
+      this.checkoutListArray.push(checkoutObject);
+      return this.checkoutListArray;
     }
+    else {
+      return null;
   }
-  deleteItem(todo) {
-    for (let i = 0; i < this.todoArray.length; i++) {
-      if (todo == this.todoArray[i]) {
-        this.todoArray.splice(i, 1);
-        console.log("delete item");
+}
+  
+  returnHeadphone(checkoutObject: ListItem){
+    for(let i = 0; i < this.checkoutListArray.length; i++){
+      if(checkoutObject == this.checkoutListArray[i]){
+        this.headphoneLogArray.push(this.checkoutListArray[i]);
+        this.checkoutListArray.splice(i, 1);
       }
     }
-    return this.todoArray;
+    return this.checkoutListArray;
+  }
+  
+  updateLog(){
+    return this.headphoneLogArray;
   }
 }
