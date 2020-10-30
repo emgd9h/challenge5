@@ -1,7 +1,7 @@
 export interface ListItem {
     headphoneNumber: number,
     timeCheckout: string,
-    studentNamae: string,
+    studentName: string,
     returnedTime: string
 }
 
