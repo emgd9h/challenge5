@@ -6,20 +6,26 @@
 
 <ion-content>
  
-    <form [formGroup]="todoForm" (ngSubmit)="addTodo()">
+    <form [formGroup]="checkoutListForm" (ngSubmit)="addItem()">
       <ion-item>
-        <ion-input type="text" formControlName="todo" placeholder="Add Todo"></ion-input>
-        <!-- <ion-icon name="add" (click)="addTodo(todoForm.value.todo)" [disabled]="!todoForm.valid"></ion-icon> -->
-        
+        <ion-input type="text" formControlName="studentName" placeholder="Input your name..."></ion-input>
       </ion-item>
-      <ion-button expand="full" name="add" (click)="addTodo()" [disabled]="!todoForm.valid">ADD</ion-button>
+      <ion-item>
+        <ion-select formControlName="headphoneOptions" value ="headphoneOptions" interface="action-sheet">
+          <ion-select-option value="Headphone 1">Headphone 1</ion-select-option>
+          <ion-select-option value="Headphone 2">Headphone 2</ion-select-option>
+          <ion-select-option value="Headphone 3">Headphone 3</ion-select-option>
+
+        </ion-select>
+      </ion-item>
+      <ion-button expand="full" name="add" (click)="addTodo()" [disabled]="!checkoutListForm.valid">ADD</ion-button>
       <ion-item>
         {{ todoArray.length }} Todos Remaining
       </ion-item>
 
-      <ion-list *ngFor="let myTodo of todoArray">
+      <ion-list *ngFor="let listElement of checkoutListArray">
         <ion-item>
-          {{myTodo.todo}}
+            Name:{{listElement.studentName}} Headphone No.: {{listElement.headphoneNumber}} Checked Out:{{listElement.timeCheckout}}
           <ion-icon name="close" (click)="deleteItem(myTodo)"></ion-icon>
         </ion-item>
       </ion-list>

@@ -9,16 +9,16 @@ import { DataService } from "src/app/services/ChecklistData/data.service";
   styleUrls: ['./checkout-list.page.scss'],
 })
 export class CheckoutListPage implements OnInit {
-  private todoForm: FormGroup;
-  todoArray = [];
+  private checkoutListForm: FormGroup;
+  checkoutListArray = [];
   constructor(private formBuilder: FormBuilder, private ChecklistModel: DataService) {
-    this.todoForm = this.formBuilder.group({
-      todo: ["", Validators.required],
-      done: false
+    this.checkoutListForm = this.formBuilder.group({
+      studentName: ["", Validators.required],
+      headphoneOptions: ["", Validators.required],
     });
   }
  addTodo(value){
-   this.todoArray = this.ChecklistModel.addTodo(this.todoForm.value);
+   this.checkoutListArray= this.ChecklistModel.addTodo(this.checkoutListForm.value);
    function formatAMPM(date) {
     var hours = date.getHours();
     var minutes = date.getMinutes();
@@ -35,7 +35,7 @@ export class CheckoutListPage implements OnInit {
   
  }
  deleteItem(todo){
-   this.todoArray = this.ChecklistModel.deleteItem(todo);
+   this.checkoutListArray = this.ChecklistModel.deleteItem(todo);
  }
 
 
