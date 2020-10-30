@@ -17,6 +17,10 @@ export class CheckoutListPage implements OnInit {
       headphoneOptions: ["", Validators.required],
     });
   }
+
+
+  
+
  addTodo(value){
    this.checkoutListArray= this.ChecklistModel.addTodo(this.checkoutListForm.value);
    function formatAMPM(date) {
@@ -29,11 +33,16 @@ export class CheckoutListPage implements OnInit {
     var strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
   }
+  var time = (formatAMPM(new Date));
+  this.checkoutListArray = this.ChecklistModel.checkoutHeadphone({
+    headphoneNumber: this.checkoutForm.value.headphoneNumber,
+    timeCheckout: time,
+    studentName: this.checkoutForm.value.studenName,
+    returnedTime: null,
+    });
+    }
   
-  var x = (formatAMPM(new Date));
-  console.log(x);
-  
- }
+ 
  deleteItem(todo){
    this.checkoutListArray = this.ChecklistModel.deleteItem(todo);
  }
