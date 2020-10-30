@@ -21,8 +21,7 @@ export class CheckoutListPage implements OnInit {
 
   
 
- addTodo(value){
-   this.checkoutListArray= this.ChecklistModel.addTodo(this.checkoutListForm.value);
+ addItem(value){
    function formatAMPM(date) {
     var hours = date.getHours();
     var minutes = date.getMinutes();
