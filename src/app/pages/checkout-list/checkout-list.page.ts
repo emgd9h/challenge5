@@ -16,12 +16,16 @@ export class CheckoutListPage implements OnInit {
       studentName: ["", Validators.required],
       headphoneOptions: ["", Validators.required],
     });
+    this.ChecklistModel.getData("checkoutList").then((checkouts) => {
+      if (checkouts) {
+        this.checkoutListArray = checkouts;
+      }
+
+    });
   }
 
 
-
- addItem(){
-   function formatAMPM(date) {
+  formatAMPM(date) {
     var hours = date.getHours();
     var minutes = date.getMinutes();
     var ampm = hours >= 12 ? 'pm' : 'am';
@@ -31,7 +35,10 @@ export class CheckoutListPage implements OnInit {
     var strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
   }
-  var time = (formatAMPM(new Date));
+
+ addItem(){
+
+  var time = (this.formatAMPM(new Date));
   this.checkoutListArray = this.ChecklistModel.checkoutHeadphone({
     headphoneNumber: this.checkoutListForm.value.headphoneOptions,
     timeCheckout: time,
@@ -41,8 +48,9 @@ export class CheckoutListPage implements OnInit {
     }
   
  
- deleteItem(todo){
-   this.checkoutListArray = this.ChecklistModel.returnHeadphone(todo);
+ deleteItem(item){
+  var time = (this.formatAMPM(new Date));
+   this.checkoutListArray = this.ChecklistModel.returnHeadphone(item, time);
  }
 
 
