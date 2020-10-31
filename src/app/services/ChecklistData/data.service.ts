@@ -60,11 +60,6 @@ export class DataService {
     return this.checkoutListArray;
   }
   
-  updateLog(){
-    this.headphoneLogArray = 
-    console.log(this.headphoneLogArray);
-    return this.headphoneLogArray;
-  }
 
 
 
