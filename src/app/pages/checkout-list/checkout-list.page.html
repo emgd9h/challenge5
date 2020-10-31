@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>checkoutList</ion-title>
+    <ion-title>Miss Gerstners Headphone Checkout</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,22 +11,22 @@
         <ion-input type="text" formControlName="studentName" placeholder="Input your name..."></ion-input>
       </ion-item>
       <ion-item>
-        <ion-select formControlName="headphoneOptions" value ="headphoneOptions" interface="action-sheet">
+        <ion-select formControlName="headphoneOptions" value ="headphoneOption" interface="action-sheet">
           <ion-select-option value="Headphone 1">Headphone 1</ion-select-option>
           <ion-select-option value="Headphone 2">Headphone 2</ion-select-option>
           <ion-select-option value="Headphone 3">Headphone 3</ion-select-option>
 
         </ion-select>
       </ion-item>
-      <ion-button expand="full" name="add" (click)="addTodo()" [disabled]="!checkoutListForm.valid">ADD</ion-button>
+      <ion-button expand="full" name="add" (click)="addItem()" [disabled]="!checkoutListForm.valid">ADD</ion-button>
       <ion-item>
-        {{ todoArray.length }} Todos Remaining
+        {{ checkoutListArray.length }} Headphones Checked Out
       </ion-item>
 
       <ion-list *ngFor="let listElement of checkoutListArray">
         <ion-item>
-            Name:{{listElement.studentName}} Headphone No.: {{listElement.headphoneNumber}} Checked Out:{{listElement.timeCheckout}}
-          <ion-icon name="close" (click)="deleteItem(myTodo)"></ion-icon>
+            Name: {{listElement.studentName}} Headphone No. : {{listElement.headphoneNumber}} Checked Out: {{listElement.timeCheckout}}
+          <ion-icon name="close" (click)="deleteItem(listElement)"></ion-icon>
         </ion-item>
       </ion-list>
     </form>

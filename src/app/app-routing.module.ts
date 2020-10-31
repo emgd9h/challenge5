@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'checkout-list',
     loadChildren: () => import('./pages/checkout-list/checkout-list.module').then( m => m.CheckoutListPageModule)
   },
+  {
+    path: 'checkout-log',
+    loadChildren: () => import('./pages/logFile/checkout-log/checkout-log.module').then( m => m.CheckoutLogPageModule)
+  },
 ];
 
 @NgModule({

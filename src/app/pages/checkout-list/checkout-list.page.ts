@@ -19,9 +19,8 @@ export class CheckoutListPage implements OnInit {
   }
 
 
-  
 
- addItem(value){
+ addItem(){
    function formatAMPM(date) {
     var hours = date.getHours();
     var minutes = date.getMinutes();
@@ -34,7 +33,7 @@ export class CheckoutListPage implements OnInit {
   }
   var time = (formatAMPM(new Date));
   this.checkoutListArray = this.ChecklistModel.checkoutHeadphone({
-    headphoneNumber: this.checkoutListForm.value.headphoneNumber,
+    headphoneNumber: this.checkoutListForm.value.headphoneOptions,
     timeCheckout: time,
     studentName: this.checkoutListForm.value.studentName,
     returnedTime: null,
