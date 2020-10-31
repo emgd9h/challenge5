@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Todo } from 'src/app/types/todos/todo';
 import { ListItem } from 'src/app/types/checkoutList/list-item';
 import { Storage } from '@ionic/storage';
+import { time } from 'console';
 
 
 @Injectable({
@@ -48,9 +49,10 @@ export class DataService {
   }
 }
   
-  returnHeadphone(checkoutObject: ListItem){
+  returnHeadphone(checkoutObject: ListItem, time: string){
     for(let i = 0; i < this.checkoutListArray.length; i++){
       if(checkoutObject == this.checkoutListArray[i]){
+        this.checkoutListArray[i].returnedTime = time;
         this.headphoneLogArray.push(this.checkoutListArray[i]);
         this.checkoutListArray.splice(i, 1);
       }
