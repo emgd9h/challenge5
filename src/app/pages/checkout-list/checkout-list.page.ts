@@ -52,6 +52,7 @@ export class CheckoutListPage implements OnInit {
     studentName: this.checkoutListForm.value.studentName,
     returnedTime: null,
     });
+    this.checkoutListForm.reset();
     }
   
  
