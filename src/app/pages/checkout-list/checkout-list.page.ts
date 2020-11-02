@@ -19,7 +19,6 @@ export class CheckoutListPage implements OnInit {
       headphoneOptions: ["", Validators.required],
     });
 
-    this.checkoutListArray = this.ChecklistModel.getArray(arrayName);
     this.ChecklistModel.getData("checkoutList").then((checkouts) => {
       if (checkouts) {
         this.checkoutListArray = checkouts;

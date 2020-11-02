@@ -32,7 +32,7 @@
 
       <ion-list *ngFor="let listElement of checkoutListArray">
         <ion-item>
-            Name: {{listElement.studentName}} Checked out: {{listElement.headphoneNumber}} Checked Out: {{listElement.timeCheckout}}
+            Name: {{listElement.studentName}} Checked out: {{listElement.headphoneNumber}} At:  {{listElement.timeCheckout}}
           <ion-icon name="close" (click)="deleteItem(listElement)"></ion-icon>
         </ion-item>
       </ion-list>
