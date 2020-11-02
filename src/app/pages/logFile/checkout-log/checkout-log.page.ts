@@ -10,9 +10,12 @@ import { Router } from "@angular/router";
 })
 export class CheckoutLogPage implements OnInit {
   headphoneLogArray: ListItem[] = [];
+  
 
 
   constructor(private ChecklistModel: DataService, private route: Router) {
+    var arrayName = "checkoutLog";
+    this.headphoneLogArray = this.ChecklistModel.getArray(arrayName);
     this.ChecklistModel.getData("checkoutLog").then((checkouts) => {
       if (checkouts) {
         this.headphoneLogArray = checkouts;

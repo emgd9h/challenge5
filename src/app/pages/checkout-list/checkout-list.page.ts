@@ -13,12 +13,13 @@ export class CheckoutListPage implements OnInit {
   private checkoutListForm: FormGroup;
   checkoutListArray = [];
   constructor(private formBuilder: FormBuilder, private ChecklistModel: DataService, private route: Router) {
+    var arrayName = "checkoutList"
     this.checkoutListForm = this.formBuilder.group({
       studentName: ["", Validators.required],
       headphoneOptions: ["", Validators.required],
     });
 
-    this.checkoutListArray = this.ChecklistModel.getArray();
+    this.checkoutListArray = this.ChecklistModel.getArray(arrayName);
     this.ChecklistModel.getData("checkoutList").then((checkouts) => {
       if (checkouts) {
         this.checkoutListArray = checkouts;
