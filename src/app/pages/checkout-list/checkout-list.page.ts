@@ -31,7 +31,7 @@ export class CheckoutListPage implements OnInit {
     this.route.navigate(['/checkout-log']);
   }
 
-
+// Code from https://www.codegrepper.com/code-examples/delphi/angular+get+current+time+24hour++from+date 
   formatAMPM(date) {
     var hours = date.getHours();
     var minutes = date.getMinutes();
