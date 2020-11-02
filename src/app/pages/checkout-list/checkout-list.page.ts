@@ -17,6 +17,8 @@ export class CheckoutListPage implements OnInit {
       studentName: ["", Validators.required],
       headphoneOptions: ["", Validators.required],
     });
+
+    this.checkoutListArray = this.ChecklistModel.getArray();
     this.ChecklistModel.getData("checkoutList").then((checkouts) => {
       if (checkouts) {
         this.checkoutListArray = checkouts;
