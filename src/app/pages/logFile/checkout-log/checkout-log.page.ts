@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from "src/app/services/ChecklistData/data.service";
 import { ListItem } from 'src/app/types/checkoutList/list-item';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-checkout-log',
@@ -11,7 +12,7 @@ export class CheckoutLogPage implements OnInit {
   headphoneLogArray: ListItem[] = [];
 
 
-  constructor(private ChecklistModel: DataService) {
+  constructor(private ChecklistModel: DataService, private route: Router) {
     this.ChecklistModel.getData("checkoutLog").then((checkouts) => {
       if (checkouts) {
         this.headphoneLogArray = checkouts;
@@ -25,6 +26,9 @@ export class CheckoutLogPage implements OnInit {
   
   }
   
+  checkoutPage(){
+    this.route.navigate(['/checkout-list']);
+  }
 
 }
 

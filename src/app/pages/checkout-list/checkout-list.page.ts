@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Todo } from "src/app/types/todos/todo";
 import { DataService } from "src/app/services/ChecklistData/data.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-checkout-list',
@@ -11,7 +12,7 @@ import { DataService } from "src/app/services/ChecklistData/data.service";
 export class CheckoutListPage implements OnInit {
   private checkoutListForm: FormGroup;
   checkoutListArray = [];
-  constructor(private formBuilder: FormBuilder, private ChecklistModel: DataService) {
+  constructor(private formBuilder: FormBuilder, private ChecklistModel: DataService, private route: Router) {
     this.checkoutListForm = this.formBuilder.group({
       studentName: ["", Validators.required],
       headphoneOptions: ["", Validators.required],
@@ -22,6 +23,10 @@ export class CheckoutListPage implements OnInit {
       }
 
     });
+  }
+
+  logPage(){
+    this.route.navigate(['/checkout-log']);
   }
 
 
