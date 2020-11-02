@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Todo } from 'src/app/types/todos/todo';
 import { ListItem } from 'src/app/types/checkoutList/list-item';
 import { Storage } from '@ionic/storage';
-import { time } from 'console';
 
 
 @Injectable({
