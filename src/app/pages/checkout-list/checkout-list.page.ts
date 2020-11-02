@@ -10,9 +10,9 @@ import { Router } from "@angular/router";
   styleUrls: ['./checkout-list.page.scss'],
 })
 export class CheckoutListPage implements OnInit {
-  private checkoutListForm: FormGroup;
+  checkoutListForm: FormGroup;
   checkoutListArray = [];
-  constructor(private formBuilder: FormBuilder, private ChecklistModel: DataService, private route: Router) {
+  constructor (private formBuilder: FormBuilder, private ChecklistModel: DataService, private route: Router) {
     var arrayName = "checkoutList"
     this.checkoutListForm = this.formBuilder.group({
       studentName: ["", Validators.required],
